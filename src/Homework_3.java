@@ -16,13 +16,13 @@ public class Homework_3 {
         addData();
         System.out.println(map);
     }
-    public static void requestData() throws Exception{
+    public static void requestData() throws Exception {
         System.out.println("Введите фамилию, имя, отчество, дату рождения (в формате dd.mm.yyyy), номер телефона (число без разделителей) и пол(символ латиницей f или m), разделенные пробелом.");
         String text;
         try(BufferedReader bf = new BufferedReader(new InputStreamReader(System.in))) {
             text = bf.readLine();
         } catch (IOException e){
-            throw new Exception("Произошла ошибка при работе с консолью");
+            throw new IOException("Произошла ошибка при работе с консолью");
         }
 
         array = text.split(" ");
@@ -57,6 +57,8 @@ public class Homework_3 {
                 fileWriter.write(array[i]);
                 fileWriter.write(">");
             }
+        } catch (IOException e){
+            System.out.println(e.getMessage());
         }
     }
     public static void addData(){
