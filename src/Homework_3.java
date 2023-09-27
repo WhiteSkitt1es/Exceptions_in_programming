@@ -30,7 +30,7 @@ public class Homework_3 {
             throw new Exception("Введено неверное количество параметров");
         }
 
-        SimpleDateFormat format = new SimpleDateFormat("dd.mm.yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
         Date birthdate;
         try {
             birthdate = format.parse(array[3]);
@@ -52,9 +52,9 @@ public class Homework_3 {
         String fileName = array[0] + ".txt";
 
         try(FileWriter fileWriter = new FileWriter(fileName)){
-            for (int i = 0; i < array.length; i++) {
+            for (String s : array) {
                 fileWriter.write("<");
-                fileWriter.write(array[i]);
+                fileWriter.write(s);
                 fileWriter.write(">");
             }
         } catch (IOException e){
